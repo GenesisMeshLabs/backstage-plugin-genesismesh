@@ -1,0 +1,33 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: genesismesh-demo-rotation
+  title: Genesis Mesh governed local rotation
+  description: Request a policy-checked rotation in the local demo secret store.
+spec:
+  owner: group:default/platform-team
+  type: service
+  parameters:
+    - title: Rotation request
+      required: [lifetimeDays]
+      properties:
+        lifetimeDays:
+          title: Requested lifetime in days
+          type: integer
+          minimum: 1
+          maximum: 365
+          default: 7
+  steps:
+    - id: rotate
+      name: Authorize and rotate the local demo secret
+      action: genesismesh:demoSecret:rotate
+      input:
+        lifetimeDays: ${{ parameters.lifetimeDays }}
+  output:
+    text:
+      - title: Verified execution
+        content: |
+          Decision: ${{ steps.rotate.output.decisionId }}
+          Resource: ${{ steps.rotate.output.resourceId }}
+          Version: ${{ steps.rotate.output.version }}
+          Evidence: ${{ steps.rotate.output.evidenceStatus }}
