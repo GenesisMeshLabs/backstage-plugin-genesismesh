@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Genesis Mesh · Backstage local lab</title>
+<style>
+:root{color-scheme:dark;font:16px/1.6 system-ui,sans-serif;background:#0b1220;color:#e3eaf5}body{max-width:960px;margin:0 auto;padding:48px 24px}small,.muted{color:#aab9cf}.eyebrow{color:#84dec6;letter-spacing:.12em;font-size:12px;text-transform:uppercase}h1{font-size:clamp(30px,5vw,48px);line-height:1.15;letter-spacing:-.04em;margin:18px 0}h2{font-size:20px}p{max-width:760px}.panel{margin-top:28px;padding:28px;border:1px solid #2a3d55;border-radius:16px;background:#111e30}.flow{color:#adc8ed;font-size:14px;padding:16px 0;border-bottom:1px solid #2a3d55}label{display:block;margin-bottom:8px}input{width:120px;background:#0b1220;border:1px solid #64748b;border-radius:6px;padding:10px;color:white;font:inherit}button{font:inherit;font-weight:600;border:0;border-radius:7px;padding:11px 18px;cursor:pointer;background:#8be4c9;color:#07281f;margin:8px 8px 8px 0}button.secondary{background:#243b56;color:#e3eaf5}button:disabled{opacity:.5;cursor:wait}.status{padding:10px 14px;border-left:3px solid #8be4c9;background:#0b1220;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;color:#c7d6eb;max-height:380px;overflow:auto}footer{margin-top:32px;font-size:13px;color:#aab9cf}a{color:#8be4c9}
+</style></head><body>
+<div class="eyebrow">Genesis Mesh × Backstage / Local integration</div>
+<h1>A developer action.<br>A verified decision.</h1>
+<p class="muted">Run a real Backstage Scaffolder task against a local Genesis Mesh authority. The authority allows a secret lifetime of up to 30 days. The secret store is a local simulation; no cloud credentials are used.</p>
+<div class="flow">Backstage task → Genesis policy decision → Local secret rotation → Signed execution evidence</div>
+<section class="panel"><h2>Rotate the demo secret</h2>
+<form id="form"><label for="days">Requested lifetime in days</label><input id="days" type="number" min="1" max="365" value="7" required>
+<div><button type="submit">Run request</button><button type="button" class="secondary" id="deny">Try a denied request · 90 days</button></div></form>
+<p class="muted">Allowed requests create a new local secret version. Denied requests leave the existing version unchanged. Credentials and secret values are never shown here.</p>
+<div id="status" class="status" role="status" aria-live="polite">Ready to run a request.</div>
+<pre id="events" aria-label="Task events"></pre></section>
+<footer>Local demo only · Both servers bind to 127.0.0.1 · The integration suite also checks revocation, authority outages, and evidence verification.</footer>
+<script type="module" src="./demo.js"></script></body></html>
