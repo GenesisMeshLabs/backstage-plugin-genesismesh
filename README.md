@@ -107,7 +107,8 @@ mapping still need to be designed before a company rollout.
 
 ## Boundaries of this demo
 
-- Genesis Mesh core and SDK are pinned to 1.8.0; installed dependencies are locked.
+- Genesis Mesh core and SDK are pinned to one exact release (`package.json`, `requirements-local.txt`),
+  moved by a Renovate pull request when the next one is published; installed dependencies are locked.
 - The module currently permits only a loopback authority and the fixed demo
   resource. Replace the local adapter through the service factory when developing
   a real provider integration, and review endpoint/configuration restrictions.

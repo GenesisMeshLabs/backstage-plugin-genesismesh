@@ -1,6 +1,6 @@
 # Local Genesis Mesh authority
 
-This lab runs the real `genesis-mesh==1.8.0` Network Authority on loopback.
+This lab runs the real `genesis-mesh==1.8.1` Network Authority on loopback.
 It creates a separate SQLite database and fresh Ed25519 keys in the specified
 state directory. It never reads keys or databases from another Genesis Mesh
 installation. `boundary_policy_enforcement="required"` and `evidence_store="on"`
@@ -10,7 +10,7 @@ From the plugin workspace, install the pinned package in its own environment:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install genesis-mesh==1.8.0
+.\.venv\Scripts\python.exe -m pip install genesis-mesh==1.8.1
 .\.venv\Scripts\python.exe scripts/local-authority.py --state-dir .local/authority --port 19443
 ```
 
