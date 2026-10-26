@@ -1,1 +1,1 @@
-genesis-mesh==1.8.0
+genesis-mesh==1.8.1
